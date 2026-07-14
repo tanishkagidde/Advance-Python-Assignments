@@ -15,7 +15,7 @@ class Patron:
 
 class Library:
     def __init__(self):
-        self.books = {}     
+        self.books = {}      
         self.patrons = {}    
 
     def add_book(self, book_id, title, author):
@@ -40,31 +40,143 @@ class Library:
             book.available = True
             patron.borrowed_books.remove(book)
 
+    def display_books(self):
+        for book in self.books.values():
+            print(book.book_id, book.title, book.author, book.available)
+
+    def display_patrons(self):
+        for patron in self.patrons.values():
+            print(patron.patron_id, patron.name, [b.title for b in patron.borrowed_books])
+
 library = Library()
-library.add_book("B02", "Harry Potter", "J. K. Rowling")
-library.register_patron("P100", "Tanishka")
 
-print("--- START LIBRARY TRANSACTION ---")
+while True:
+    print("\n LIBRARY MANAGEMENT SYSTEM")
+    print("1. Add Book")
+    print("2. Register Patron")
+    print("3. Borrow Book")
+    print("4. Return Book")
+    print("5. Display Books")
+    print("6. Display Patrons")
+    print("7. Exit")
 
-print(f"Is 'Harry Potter' available on the shelf? {library.books['B02'].available}")
+    choice = input("Enter your choice: ")
 
-library.borrow_book("P100", "B02")
-backpack_contents = library.patrons["P100"].borrowed_books[0].title
-print(f"Tanishka borrowed a book.")
-print(f"Current item in Tanishka's backpack: {backpack_contents}")
+    if choice == "1":
+        book_id = input("Enter Book ID: ")
+        title = input("Enter Book Title: ")
+        author = input("Enter Author Name: ")
+        library.add_book(book_id, title, author)
 
-print(f"Is 'Harry Potter' available on the shelf now? {library.books['B02'].available}")
+    elif choice == "2":
+        patron_id = input("Enter Patron ID: ")
+        name = input("Enter Patron Name: ")
+        library.register_patron(patron_id, name)
 
-library.return_book("P100", "B02")
-print("Tanishka returned the book.")
+    elif choice == "3":
+        patron_id = input("Enter Patron ID: ")
+        book_id = input("Enter Book ID: ")
+        library.borrow_book(patron_id, book_id)
 
-print(f"Is 'Harry Potter' available again? {library.books['B02'].available}")
+    elif choice == "4":
+        patron_id = input("Enter Patron ID: ")
+        book_id = input("Enter Book ID: ")
+        library.return_book(patron_id, book_id)
 
-#OUTPUT : 
-#--- START LIBRARY TRANSACTION ---
-#Is 'Harry Potter' available on the shelf? True
-#Tanishka borrowed a book.
-#Current item in Tanishka's backpack: Harry Potter
-#Is 'Harry Potter' available on the shelf now? False
-#Tanishka returned the book.
-#Is 'Harry Potter' available again? True
+    elif choice == "5":
+        library.display_books()
+
+    elif choice == "6":
+        library.display_patrons()
+
+    elif choice == "7":
+        print("Thank you for using Library Management System!")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
+
+#OUTPUT
+"""
+ LIBRARY MANAGEMENT SYSTEM
+1. Add Book
+2. Register Patron
+3. Borrow Book
+4. Return Book
+5. Display Books
+6. Display Patrons
+7. Exit
+Enter your choice: 1
+Enter Book ID: 100
+Enter Book Title: Harry Potter
+Enter Author Name: J. K. Rowling
+
+ LIBRARY MANAGEMENT SYSTEM
+1. Add Book
+2. Register Patron
+3. Borrow Book
+4. Return Book
+5. Display Books
+6. Display Patrons
+7. Exit
+Enter your choice: 2
+Enter Patron ID: 25
+Enter Patron Name: Tanishka Gidde
+
+ LIBRARY MANAGEMENT SYSTEM
+1. Add Book
+2. Register Patron
+3. Borrow Book
+4. Return Book
+5. Display Books
+6. Display Patrons
+7. Exit
+Enter your choice: 3
+Enter Patron ID: 25
+Enter Book ID: 100
+
+ LIBRARY MANAGEMENT SYSTEM
+1. Add Book
+2. Register Patron
+3. Borrow Book
+4. Return Book
+5. Display Books
+6. Display Patrons
+7. Exit
+Enter your choice: 4
+Enter Patron ID: 25
+Enter Book ID: 100
+
+ LIBRARY MANAGEMENT SYSTEM
+1. Add Book
+2. Register Patron
+3. Borrow Book
+4. Return Book
+5. Display Books
+6. Display Patrons
+7. Exit
+Enter your choice: 5
+100 Harry Potter J. K. Rowling True
+
+ LIBRARY MANAGEMENT SYSTEM
+1. Add Book
+2. Register Patron
+3. Borrow Book
+4. Return Book
+5. Display Books
+6. Display Patrons
+7. Exit
+Enter your choice: 6
+25 Tanishka Gidde []
+
+ LIBRARY MANAGEMENT SYSTEM
+1. Add Book
+2. Register Patron
+3. Borrow Book
+4. Return Book
+5. Display Books
+6. Display Patrons
+7. Exit
+Enter your choice: 7
+Thank you for using Library Management System!
+"""
