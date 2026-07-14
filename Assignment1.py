@@ -59,3 +59,12 @@ library.return_book("P100", "B02")
 print("Tanishka returned the book.")
 
 print(f"Is 'Harry Potter' available again? {library.books['B02'].available}")
+
+#OUTPUT : 
+#--- START LIBRARY TRANSACTION ---
+#Is 'Harry Potter' available on the shelf? True
+#Tanishka borrowed a book.
+#Current item in Tanishka's backpack: Harry Potter
+#Is 'Harry Potter' available on the shelf now? False
+#Tanishka returned the book.
+#Is 'Harry Potter' available again? True
