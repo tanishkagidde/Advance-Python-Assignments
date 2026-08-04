@@ -40,10 +40,64 @@ print("Length of LCS:", length)
 
 OUTPUT :
 
+Enter the first sequence: ABCDGH
+Enter the second sequence: AEDFHR
+
+Longest Common Subsequence: ADH
+Length of LCS: 3
+
+Enter the first sequence: AGGTAB
+Enter the second sequence: GXTXAYB
+
+Longest Common Subsequence: GTAB
+Length of LCS: 4
+
+Enter the first sequence: ABCDEF
+Enter the second sequence: ACE
+
+Longest Common Subsequence: ACE
+Length of LCS: 3
+
 Enter the first sequence: HELLO
 Enter the second sequence: YELLOW
 
 Longest Common Subsequence: ELLO
 Length of LCS: 4
+
+Enter the first sequence: COMPUTER 
+Enter the second sequence: HOUSE
+
+Longest Common Subsequence: OUE
+Length of LCS: 3
+
+Enter the first sequence: PYTHON
+Enter the second sequence: TYCOON
+
+Longest Common Subsequence: TON
+Length of LCS: 3
+
+Enter the first sequence: PROGRAM
+Enter the second sequence: GRAPE
+
+Longest Common Subsequence: GRA
+Length of LCS: 3
+
+Enter the first sequence: ENGINEERING
+Enter the second sequence: GREENING
+
+Longest Common Subsequence: GEEING
+Length of LCS: 6
+
+Enter the first sequence: BANANA
+Enter the second sequence: ATANA
+
+Longest Common Subsequence: AANA
+Length of LCS: 4
+
+Enter the first sequence: ABCXYZ
+Enter the second sequence: XYZABC
+
+Longest Common Subsequence: XYZ
+Length of LCS: 3
 
 '''
