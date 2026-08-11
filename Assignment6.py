@@ -9,9 +9,6 @@ def knapsack_bottom_up(weights, values, capacity):
         for w in range(1, capacity + 1):
             # If current item can fit
             if weights[i - 1] <= w:
-                # Maximum of:
-                # 1. Including the item
-                # 2. Excluding the item
                 dp[i][w] = max(
                     values[i - 1] + dp[i - 1][w - weights[i - 1]],
                     dp[i - 1][w],
