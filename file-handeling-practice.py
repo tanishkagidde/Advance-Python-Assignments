@@ -69,7 +69,7 @@ try:
     print(content)
 finally:
     file.close()
-/*
+"""
 OUTPUT : 
 1. WRITE OPERATION
 Data written successfully.
@@ -125,4 +125,4 @@ This is Delhi
 This is Paris 
 This is London 
 Today 
-*/
+"""
