@@ -1,29 +1,23 @@
 import threading
 import time
 
-# Create a Lock object to synchronize printing
-print_lock = threading.Lock()
-
 # Task 1: Display numbers
 def display_numbers():
     for i in range(1, 6):
-        with print_lock:
-            print("Number:", i)
+        print("Number:", i)
         time.sleep(1)
 
 # Task 2: Display squares
 def display_squares():
     for i in range(1, 6):
-        with print_lock:
-            print("Square of", i, "=", i * i)
+        print("Square of", i, "=", i * i)
         time.sleep(1)
 
 # Task 3: Display messages
 def display_messages():
     messages = ["Hello", "Welcome", "Learn Python"]
     for message in messages:
-        with print_lock:
-            print("Message:", message)
+        print("Message:", message)
         time.sleep(1)
 
 # Create threads
